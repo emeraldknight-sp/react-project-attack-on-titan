@@ -1,0 +1,10 @@
+node_modules/
+build/
+dist/
+.git/
+.vscode/
+yarn.lock
+package-lock.json
+*.log
+.env
+src/styles/global.ts
