@@ -2,25 +2,47 @@
   "name": "react-project-attack-on-titan",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint-staged": "lint-staged",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "typescript": "^5.3.3",
+    "web-vitals": "^3.5.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.3.0",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.11.6",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.4",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged && yarn test",
+      "pre-push": "yarn lint"
+    }
   },
   "eslintConfig": {
     "extends": [
