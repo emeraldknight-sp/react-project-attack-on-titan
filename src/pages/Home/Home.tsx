@@ -1,5 +1,11 @@
+import { Header } from "../../components/Header";
+import { StyledHome } from "./Home.style";
+
 export const Home = () => {
   return (
-    <h1>Hello world</h1>
-  )
-}
+    <StyledHome>
+      <Header />
+      <main></main>
+    </StyledHome>
+  );
+};
