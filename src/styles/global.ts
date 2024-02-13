@@ -48,35 +48,40 @@ table {
 :root {
 	--primary-color: #FF0000;
 	--secondary-color: #FFC400;
+	--tertiary-color: rgba(0, 0, 0, 0.6);
 
 	--text-5xl: 3rem;
-	--line-height-5xl: 1;
-
 	--text-4xl: 2.25rem;
-	--line-height-4xl: 2.5rem;
-
 	--text-3xl: 1.875rem;
-	--line-height-3xl: 2.25rem;
-
 	--text-2xl: 1.5rem;
-	--line-height-2xl: 2rem;
-
 	--text-xl: 1.25rem;
-	--line-height-xl: 1.75rem;
-
 	--text-lg: 1.125rem;
-	--line-height-lg: 1.75rem;
-
 	--text-md: 1rem;
-	--line-height-md: 1.5rem;
-
 	--text-sm: 0.875rem;
-	--line-height-sm: 1.25rem;
-
 	--text-xs: 0.75rem;
+
+	--line-height-5xl: 1;
+	--line-height-4xl: 2.5rem;
+	--line-height-3xl: 2.25rem;
+	--line-height-2xl: 2rem;
+	--line-height-xl: 1.75rem;
+	--line-height-lg: 1.75rem;
+	--line-height-md: 1.5rem;
+	--line-height-sm: 1.25rem;
 	--line-height-xs: 1rem;
 
-	--text-title: "Bebas Neue", sans-serif;
-	--text-content: "Inter", sans-serif;
+	--rounded-none: 0px;
+	--rounded-sm:	0.125rem;
+	--rounded: 0.25rem;
+	--rounded-md:	0.375rem;
+	--rounded-lg:	0.5rem;
+	--rounded-xl:	0.75rem;
+	--rounded-2xl:	1rem;
+	--rounded-3xl: 1.5rem;
+	--rounded-full: 9999px;
+
+	--text-title: "Josefin Sans", sans-serif;
+	--text-content: "Fira Sans", sans-serif;
+	--text-ubuntu: "Ubuntu", sans-serif;
 }
 `;
