@@ -15,6 +15,7 @@ export const StyledButton = styled.button<ButtonProps>`
 
   border: none;
   transition: all 0.5s ease;
+  /* outline: none; */
   cursor: pointer;
 
   a,
