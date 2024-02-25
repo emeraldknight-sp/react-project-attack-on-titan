@@ -1,73 +1,34 @@
 import styled from "@emotion/styled";
 
 export const StyledHeader = styled.header`
+  color: white;
+  padding: 1rem 0;
+
   .header__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-
-  .header__nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .header__nav--list {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .header__nav--item {
-    a {
-      position: relative;
-      font-family: var(--text-content);
-      color: rgba(0, 0, 0, 0.5);
-      font-weight: 600;
-      padding: 0 0 6px;
-      transition: color 0.3s ease;
-
-      &:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 5px;
-        background-color: var(--primary-color);
-        border-radius: 10px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      &:hover {
-        color: black;
-
-        &:after {
-          opacity: 1;
-        }
-      }
-    }
-  }
 `;
 
 export const StyledLogo = styled.figure`
-  a {
+  .logo__link {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-end;
+    text-decoration: none;
+    gap: 8px;
+    outline: none;
   }
 
-  h1 {
+  .logo__title {
     font-size: var(--text-3xl);
     font-family: var(--text-title);
     font-weight: 600;
-    line-height: var(--line-height-3xl);
+    color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: black;
   }
 `;
