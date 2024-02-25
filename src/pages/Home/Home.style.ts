@@ -4,7 +4,8 @@ export const StyledHome = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden;
   position: relative;
   z-index: 1;
 
@@ -20,7 +21,7 @@ export const StyledHome = styled.div`
   }
 
   .main {
-    padding: 2rem 0;
+    padding: 1rem 0;
     flex: 1;
   }
 
@@ -31,23 +32,13 @@ export const StyledHome = styled.div`
     gap: 100px;
   }
 
-  .group-button {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
+  @media (min-width: 375px) {
+    height: 100vh;
   }
 
   @media (min-width: 1024px) {
-    height: 100vh;
-
-    .main__container,
-    .group-button {
+    .main__container {
       flex-direction: row;
-    }
-
-    .group-button {
-      margin-top: 32px;
     }
   }
 `;
@@ -57,7 +48,7 @@ export const StyledDetailsSection = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 40px;
+  gap: 28px;
 
   .details__list-genres {
     display: flex;
@@ -68,75 +59,112 @@ export const StyledDetailsSection = styled.section`
 
   .details__genre {
     font-family: var(--text-content);
-    font-size: var(--text-md);
+    font-size: var(--text-xs);
     font-weight: 600;
-    line-height: var(--line-height-md);
+    line-height: var(--line-height-xs);
     color: white;
     background-color: transparent;
     border: 1px solid white;
-    border-radius: 16px;
-    padding: 4px 16px;
+    border-radius: var(--rounded-md);
+    padding: 4px 8px;
   }
 
   .details__title {
     font-family: var(--text-title);
-    font-size: var(--text-5xl);
+    font-size: var(--text-4xl);
     font-weight: 600;
-    line-height: var(--line-height-5xl);
+    line-height: var(--line-height-4xl);
     text-transform: uppercase;
     color: white;
   }
 
   .details__description {
     font-family: var(--text-content);
-    font-size: var(--text-lg);
+    font-size: var(--text-md);
     font-weight: 400;
-    line-height: var(--line-height-lg);
+    line-height: var(--line-height-md);
     color: white;
+  }
+
+  .details__group-details {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    width: 100%;
   }
 
   .details__average {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 24px;
+    flex: 1;
+  }
 
-    div {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      color: white;
+  .details__average div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: white;
+  }
 
-      p:nth-child(1) {
-        font-size: var(--text-2xl);
-        font-family: var(--text-content);
-        font-weight: 600;
-        line-height: var(--line-height-2xl);
+  .details__average div p:nth-child(1) {
+    font-size: var(--text-2xl);
+    font-family: var(--text-content);
+    font-weight: 600;
+    line-height: var(--line-height-2xl);
 
-        span {
-          font-size: var(--text-xl);
-          line-height: var(--line-height-xl);
-          background-color: var(--secondary-color);
-          color: black;
-          padding: 2px 8px;
-          border: none;
-          border-radius: 4px;
-        }
-      }
-
-      p:nth-child(2) {
-        font-size: var(--text-5xl);
-        font-family: var(--text-content);
-        font-weight: 600;
-        line-height: var(--line-height-5xl);
-      }
+    span {
+      font-size: var(--text-xl);
+      line-height: var(--line-height-xl);
+      background-color: var(--secondary-color);
+      color: black;
+      padding: 2px 8px;
+      border: none;
+      border-radius: var(--rounded-xs);
     }
+  }
+
+  .details__average div p:nth-child(2) {
+    font-size: var(--text-5xl);
+    font-family: var(--text-content);
+    font-weight: 600;
+    line-height: var(--line-height-5xl);
   }
 
   .details__average svg {
     font-size: 100px;
     color: var(--secondary-color);
+  }
+
+  .details__group-button {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .details__link {
+    text-decoration: none;
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    .details__genre {
+      font-size: var(--text-md);
+      line-height: var(--line-height-md);
+    }
+
+    .details__group-button {
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .details__group-button {
+      margin-top: 32px;
+    }
   }
 `;
 

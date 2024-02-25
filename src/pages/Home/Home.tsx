@@ -77,6 +77,7 @@ export const Home = () => {
       style={{
         backgroundImage: `url(${backgroundURL}/${data.backdrop_path})`,
         backgroundSize: "cover",
+        height: openMenu ? "100vh" : "",
         overflow: openMenu ? "hidden" : "",
       }}
     >
@@ -93,63 +94,80 @@ export const Home = () => {
             </ul>
             <h3 className="details__title">{data.title}</h3>
             <p className="details__description">{data.overview}</p>
-            <div className="details__average">
-              <IoIcon.IoIosStar />
-              <div>
-                <p>
-                  Nota da <span>IMDb</span>
-                </p>
-                <p>{data.vote_average.toFixed(1)}/10</p>
+            <div className="details__group-details">
+              <div className="details__average">
+                <IoIcon.IoIosStar />
+                <div>
+                  <p>
+                    Nota da <span>IMDb</span>
+                  </p>
+                  <p>{data.vote_average.toFixed(1)}/10</p>
+                </div>
+              </div>
+              <div className="details__group-button">
+                {data.homepage === "" ? (
+                  <a
+                    href={data.homepage}
+                    className="details__link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      rounded="lg"
+                      size="md"
+                      ariaLabel="Em breve"
+                      onClick={handleClick}
+                      disabled
+                    >
+                      <IoIcon.IoIosHourglass size={24} />
+                      <span>Em breve</span>
+                    </Button>
+                  </a>
+                ) : (
+                  <a
+                    href={data.homepage}
+                    className="details__link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      rounded="lg"
+                      size="md"
+                      ariaLabel="Assistir agora"
+                      onClick={handleClick}
+                    >
+                      <IoIcon.IoIosPlay size={24} />
+                      <span>Assistir agora</span>
+                    </Button>
+                  </a>
+                )}
+                <a href="/" className="details__link">
+                  <Button
+                    variant="contained"
+                    color="tertiary"
+                    rounded="lg"
+                    size="md"
+                    ariaLabel="Assistir agora"
+                    onClick={handleClick}
+                  >
+                    <IoIcon.IoMdAdd size={24} />
+                    <span>Adicionar a lista</span>
+                  </Button>
+                </a>
               </div>
             </div>
-            <div className="group-button">
-              {data.homepage === "" ? (
-                <Button
-                  type="button"
-                  variant="contained"
-                  color="primary"
-                  rounded="md"
-                  size="md"
-                  ariaLabel="Em breve"
-                  onClick={handleClick}
-                  disabled
-                >
-                  <IoIcon.IoIosHourglass size={24} />
-                  <a href={data.homepage} target="_blank" rel="noreferrer">
-                    Em breve
-                  </a>
-                </Button>
-              ) : (
-                <Button
-                  type="button"
-                  variant="contained"
-                  color="primary"
-                  rounded="md"
-                  size="md"
-                  ariaLabel="Assistir agora"
-                  onClick={handleClick}
-                >
-                  <IoIcon.IoIosPlay size={24} />
-                  <a href={data.homepage} target="_blank" rel="noreferrer">
-                    Assistir agora
-                  </a>
-                </Button>
-              )}
-              <Button
-                type="button"
-                variant="contained"
-                color="tertiary"
-                rounded="md"
-                size="md"
-                ariaLabel="Assistir agora"
-                onClick={handleClick}
-              >
-                <IoIcon.IoMdAdd size={24} />
-                <a href="/">Adicionar aos favoritos</a>
-              </Button>
-            </div>
           </StyledDetailsSection>
-          {/* <StyledTeaserTrailerSection>
+        </Container>
+      </main>
+    </StyledHome>
+  );
+};
+{
+  /* <StyledTeaserTrailerSection>
             {trailers ? (
               trailers.results.map((trailer, index) => (
                 <div key={index} className="iframe__container">
@@ -164,12 +182,8 @@ export const Home = () => {
             ) : (
               <div></div>
             )}
-          </StyledTeaserTrailerSection> */}
-        </Container>
-      </main>
-    </StyledHome>
-  );
-};
+          </StyledTeaserTrailerSection> */
+}
 
 // const [data, setData] = useState<Movie[]>();
 
@@ -206,7 +220,7 @@ export const Home = () => {
                   />
                   <p>{movie.title}</p>
                   <p>{movie.vote_average}</p>
-                  <button type="button">Ver</button>
+                  <button>Ver</button>
                 </div>
               ))}
             </div>
