@@ -11,7 +11,7 @@ export const Header = () => {
   const [viewport, setViewport] = useState(window.innerWidth);
   const { openMenu, handleOpenMenu } = useContext(MenuContext);
 
-  const viewportDesktop = 1024;
+  const viewportDesktop = 1023;
 
   const updateViewport = () => {
     setViewport(window.innerWidth);
@@ -49,7 +49,6 @@ export const Header = () => {
           <></>
         ) : (
           <IconButton
-            type="button"
             size="sm"
             color="transparent"
             variant="text"

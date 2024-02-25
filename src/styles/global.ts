@@ -69,15 +69,11 @@ table {
 	--line-height-sm: 1.25rem;
 	--line-height-xs: 1rem;
 
-	--rounded-none: 0px;
-	--rounded-sm:	0.125rem;
-	--rounded: 0.25rem;
-	--rounded-md:	0.375rem;
-	--rounded-lg:	0.5rem;
-	--rounded-xl:	0.75rem;
-	--rounded-2xl:	1rem;
-	--rounded-3xl: 1.5rem;
-	--rounded-full: 9999px;
+	--rounded-xs:	0.25rem;
+	--rounded-sm:	0.5rem;
+	--rounded-md:	1rem;
+	--rounded-lg:	2rem;
+	--rounded-full: 100%;
 
 	--text-title: "Josefin Sans", sans-serif;
 	--text-content: "Fira Sans", sans-serif;

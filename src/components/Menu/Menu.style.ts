@@ -71,7 +71,7 @@ export const StyledMenu = styled.nav<StyledMenuProps>`
       width: 20px;
       height: 5px;
       background-color: var(--primary-color);
-      border-radius: 10px;
+      border-radius: var(--rounded-sm);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
