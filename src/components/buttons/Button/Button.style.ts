@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
 
@@ -15,8 +15,8 @@ export const StyledButton = styled.button<ButtonProps>`
 
   border: none;
   transition: all 0.5s ease;
-  /* outline: none; */
   cursor: pointer;
+  outline: none;
 
   a,
   span {
@@ -32,21 +32,13 @@ export const StyledButton = styled.button<ButtonProps>`
         : "12px 20px"};
 
   border-radius: ${(props) =>
-    props.rounded === "full"
-      ? "var(--rounded-full)"
-      : props.rounded === "3xl"
-        ? "var(--rounded-3xl)"
-        : props.rounded === "2xl"
-          ? "var(--rounded-2xl)"
-          : props.rounded === "lg"
-            ? "var(--rounded-lg)"
-            : props.rounded === "md"
-              ? "var(--rounded-md)"
-              : props.rounded === undefined
-                ? "var(--rounded)"
-                : props.rounded === "sm"
-                  ? "var(--rounded-sm)"
-                  : "var(--rounded-none)"};
+    props.rounded === "lg"
+      ? "100%"
+      : props.rounded === "md"
+        ? "32px"
+        : props.rounded === "sm"
+          ? "16px"
+          : "none"};
 
   background-color: ${(props) =>
     props.color === "primary"
