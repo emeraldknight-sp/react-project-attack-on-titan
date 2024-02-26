@@ -1,14 +1,14 @@
 import * as MdIcon from "react-icons/md";
+import { Button } from "../Button";
 import { Container } from "../Container";
+import { MenuContext } from "../../context/MenuContext";
+import { MouseEvent, useContext } from "react";
 import { StyledMenu } from "./Menu.style";
 import { menuOptions } from "../../mock/menuOptions.mock";
-import { IconButton } from "../buttons/IconButton";
-import { MouseEvent, useContext } from "react";
-import { MenuContext } from "../../context/MenuContext";
 
 export const Menu = () => {
   const { openMenu } = useContext(MenuContext);
-  
+
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     return;
@@ -55,16 +55,15 @@ export const Menu = () => {
         <ul className="menu__list">
           {menuConfig.map((config, index) => (
             <li key={index} className="menu__item">
-              <IconButton
+              <Button
                 size="sm"
-                color="transparent"
                 ariaLabel="search"
-                variant="text"
+                rounded="full"
                 className="menu__button"
                 onClick={() => console.log("Click", config.text)}
               >
                 {config.icon} <span>{config.text}</span>
-              </IconButton>
+              </Button>
             </li>
           ))}
         </ul>

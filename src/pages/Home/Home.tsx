@@ -1,11 +1,11 @@
 import * as IoIcon from "react-icons/io";
 import axios from "axios";
-import { Button } from "../../components/buttons/Button";
-import { Container } from "../../components/Container";
+import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
+import { Main } from "../../components/Main";
+import { MenuContext } from "../../context/MenuContext";
 import { MouseEvent, useContext, useEffect, useState } from "react";
 import { StyledDetailsSection, StyledHome } from "./Home.style";
-import { MenuContext } from "../../context/MenuContext";
 
 export const Home = () => {
   const [data, setData] = useState<Movie>();
@@ -82,87 +82,82 @@ export const Home = () => {
       }}
     >
       <Header />
-      <main className="main">
-        <Container className="main__container">
-          <StyledDetailsSection>
-            <ul className="details__list-genres">
-              {data.genres.map((genre, index) => (
-                <li key={index} className="details__genre">
-                  {genre.name}
-                </li>
-              ))}
-            </ul>
-            <h3 className="details__title">{data.title}</h3>
-            <p className="details__description">{data.overview}</p>
-            <div className="details__group-details">
-              <div className="details__average">
-                <IoIcon.IoIosStar />
-                <div>
-                  <p>
-                    Nota da <span>IMDb</span>
-                  </p>
-                  <p>{data.vote_average.toFixed(1)}/10</p>
-                </div>
+      <Main>
+        <StyledDetailsSection>
+          <ul className="details__list-genres">
+            {data.genres.map((genre, index) => (
+              <li key={index} className="details__genre">
+                {genre.name}
+              </li>
+            ))}
+          </ul>
+          <h3 className="details__title">{data.title}</h3>
+          <p className="details__description">{data.overview}</p>
+          <div className="details__group-details">
+            <div className="details__average">
+              <IoIcon.IoIosStar />
+              <div>
+                <p>
+                  Nota da <span>IMDb</span>
+                </p>
+                <p>{data.vote_average.toFixed(1)}/10</p>
               </div>
-              <div className="details__group-button">
-                {data.homepage === "" ? (
-                  <a
-                    href={data.homepage}
-                    className="details__link"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      rounded="lg"
-                      size="md"
-                      ariaLabel="Em breve"
-                      onClick={handleClick}
-                      disabled
-                    >
-                      <IoIcon.IoIosHourglass size={24} />
-                      <span>Em breve</span>
-                    </Button>
-                  </a>
-                ) : (
-                  <a
-                    href={data.homepage}
-                    className="details__link"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      rounded="lg"
-                      size="md"
-                      ariaLabel="Assistir agora"
-                      onClick={handleClick}
-                    >
-                      <IoIcon.IoIosPlay size={24} />
-                      <span>Assistir agora</span>
-                    </Button>
-                  </a>
-                )}
-                <a href="/" className="details__link">
+            </div>
+            <div className="details__group-button">
+              {data.homepage === "" ? (
+                <a
+                  href={data.homepage}
+                  className="details__link"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Button
-                    variant="contained"
-                    color="tertiary"
+                    color="primary"
+                    rounded="lg"
+                    size="md"
+                    ariaLabel="Em breve"
+                    onClick={handleClick}
+                    disabled
+                  >
+                    <IoIcon.IoIosHourglass size={24} />
+                    <span>Em breve</span>
+                  </Button>
+                </a>
+              ) : (
+                <a
+                  href={data.homepage}
+                  className="details__link"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button
+                    color="primary"
                     rounded="lg"
                     size="md"
                     ariaLabel="Assistir agora"
                     onClick={handleClick}
                   >
-                    <IoIcon.IoMdAdd size={24} />
-                    <span>Adicionar a lista</span>
+                    <IoIcon.IoIosPlay size={24} />
+                    <span>Assistir agora</span>
                   </Button>
                 </a>
-              </div>
+              )}
+              <a href="/" className="details__link">
+                <Button
+                  color="tertiary"
+                  rounded="lg"
+                  size="md"
+                  ariaLabel="Adicionar a lista"
+                  onClick={handleClick}
+                >
+                  <IoIcon.IoMdAdd size={24} />
+                  <span>Adicionar a lista</span>
+                </Button>
+              </a>
             </div>
-          </StyledDetailsSection>
-        </Container>
-      </main>
+          </div>
+        </StyledDetailsSection>
+      </Main>
     </StyledHome>
   );
 };

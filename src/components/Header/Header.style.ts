@@ -1,15 +1,16 @@
 import styled from "@emotion/styled";
+import { Container } from "../Container";
 
 export const StyledHeader = styled.header`
   color: white;
   padding: 1rem 0;
+`;
 
-  .header__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+export const ContainerHeader = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const StyledLogo = styled.figure`

@@ -1,11 +1,10 @@
 import * as MdIcon from "react-icons/md";
 import Logo from "../../assets/logo.png";
-import { Container } from "../Container";
-import { IconButton } from "../../components/buttons/IconButton";
+import { Button } from "../Button";
 import { Menu } from "../Menu";
-import { MouseEvent, useContext, useEffect, useState } from "react";
-import { StyledHeader, StyledLogo } from "./Header.style";
 import { MenuContext } from "../../context/MenuContext";
+import { MouseEvent, useContext, useEffect, useState } from "react";
+import { ContainerHeader, StyledHeader, StyledLogo } from "./Header.style";
 
 export const Header = () => {
   const [viewport, setViewport] = useState(window.innerWidth);
@@ -32,7 +31,7 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <Container className="header__container">
+      <ContainerHeader>
         <StyledLogo>
           <a
             href="/"
@@ -48,10 +47,9 @@ export const Header = () => {
         {viewport > viewportDesktop ? (
           <></>
         ) : (
-          <IconButton
+          <Button
             size="sm"
-            color="transparent"
-            variant="text"
+            rounded="full"
             ariaLabel="click to open menu sidebar"
             onClick={handleOpenMenu}
           >
@@ -60,9 +58,9 @@ export const Header = () => {
             ) : (
               <MdIcon.MdMenu size={24} />
             )}
-          </IconButton>
+          </Button>
         )}
-      </Container>
+      </ContainerHeader>
     </StyledHeader>
   );
 };

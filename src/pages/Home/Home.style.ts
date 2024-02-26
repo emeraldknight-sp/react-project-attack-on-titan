@@ -20,26 +20,8 @@ export const StyledHome = styled.div`
     z-index: -1;
   }
 
-  .main {
-    padding: 1rem 0;
-    flex: 1;
-  }
-
-  .main__container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 100px;
-  }
-
   @media (min-width: 375px) {
     height: 100vh;
-  }
-
-  @media (min-width: 1024px) {
-    .main__container {
-      flex-direction: row;
-    }
   }
 `;
 
@@ -89,7 +71,7 @@ export const StyledDetailsSection = styled.section`
   .details__group-details {
     display: flex;
     flex-direction: column;
-    gap: 46px;
+    gap: 44px;
     width: 100%;
   }
 
@@ -140,7 +122,7 @@ export const StyledDetailsSection = styled.section`
 
   .details__group-button {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
   }
@@ -151,17 +133,22 @@ export const StyledDetailsSection = styled.section`
   }
 
   @media (min-width: 768px) {
+    .details__title {
+      font-size: var(--text-5xl);
+      line-height: var(--line-height-5xl);
+    }
+
+    .details__description {
+      font-size: var(--text-lg);
+      line-height: var(--line-height-lg);
+    }
+
     .details__genre {
       font-size: var(--text-md);
       line-height: var(--line-height-md);
+      padding-inline: 16px;
     }
 
-    .details__group-button {
-      flex-direction: row;
-    }
-  }
-
-  @media (min-width: 1024px) {
     .details__group-button {
       margin-top: 32px;
     }
