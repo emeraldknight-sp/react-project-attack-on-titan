@@ -1,27 +1,17 @@
 /// <reference types="react-scripts" />
 
-interface ButtonBaseProps {
-  children?: React.ReactNode;
-  type?: "button" | "reset" | "submit" | undefined;
-  color: "primary" | "secondary" | string;
-  variant: "text" | "contained" | "outlined";
-  className?: string;
-  rounded?: "sm" | "md" | "lg";
-  ariaLabel: string;
+interface ButtonProps {
+  onClick: (e: any) => void;
   disabled?: boolean;
-  onClick?: (e: any) => void;
+  className?: string;
+  style?: React.CSSProperties;
+  color?: "primary" | "secondary" | "tertiary" | undefined;
+  rounded: "sm" | "md" | "lg" | "full";
+  size?: "sm" | "md" | "lg";
+  children?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  ariaLabel?: string;
 }
-
-interface ButtonProps extends ButtonBaseProps {
-  children: React.ReactNode;
-  size: "sm" | "md" | "lg";
-}
-
-interface IconButtonProps extends ButtonProps {
-  size: "sm" | "md";
-}
-
-type StyledIconButtonProps = pick<IconButtonProps, "color", "variant", "size">;
 
 interface ContainerProps {
   children: React.ReactNode;
