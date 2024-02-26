@@ -8,7 +8,7 @@ export const Button = ({
   className = "",
   size = "md",
   style = {},
-  color,
+  color="transparent",
   children,
   ariaLabel,
 }: ButtonProps) => {

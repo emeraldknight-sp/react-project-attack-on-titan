@@ -5,7 +5,7 @@ interface ButtonProps {
   disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
-  color?: "primary" | "secondary" | "tertiary" | undefined;
+  color?: "primary" | "secondary" | "tertiary" | string;
   rounded: "sm" | "md" | "lg" | "full";
   size?: "sm" | "md" | "lg";
   children?: React.ReactNode;
