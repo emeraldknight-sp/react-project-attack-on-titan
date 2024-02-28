@@ -5,6 +5,7 @@ export const StyledHome = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -19,19 +20,17 @@ export const StyledHome = styled.div`
     background: rgba(0, 0, 0, 0.6);
     z-index: -1;
   }
-
-  @media (min-width: 375px) {
-    height: 100vh;
-  }
 `;
 
-export const StyledDetailsSection = styled.section`
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 28px;
+`;
 
+export const StyledDetailsSection = styled(Section)`
   .details__list-genres {
     display: flex;
     flex-direction: row;
@@ -39,6 +38,7 @@ export const StyledDetailsSection = styled.section`
     gap: 16px;
   }
 
+  .details__season,
   .details__genre {
     font-family: var(--text-content);
     font-size: var(--text-xs);
@@ -84,40 +84,40 @@ export const StyledDetailsSection = styled.section`
     flex: 1;
   }
 
-  .details__average div {
+  .details__average--icon {
+    font-size: 100px;
+    color: var(--secondary-color);
+  }
+
+  .details__average--content {
     display: flex;
     flex-direction: column;
     gap: 8px;
     color: white;
   }
 
-  .details__average div p:nth-child(1) {
+  .details__average--label {
     font-size: var(--text-2xl);
     font-family: var(--text-content);
     font-weight: 600;
     line-height: var(--line-height-2xl);
-
-    span {
-      font-size: var(--text-xl);
-      line-height: var(--line-height-xl);
-      background-color: var(--secondary-color);
-      color: black;
-      padding: 2px 8px;
-      border: none;
-      border-radius: var(--rounded-xs);
-    }
   }
 
-  .details__average div p:nth-child(2) {
+  .details__average--label-source {
+    font-size: var(--text-xl);
+    line-height: var(--line-height-xl);
+    background-color: var(--secondary-color);
+    color: black;
+    padding: 2px 8px;
+    border: none;
+    border-radius: var(--rounded-xs);
+  }
+
+  .details__average--score {
     font-size: var(--text-5xl);
     font-family: var(--text-content);
     font-weight: 600;
     line-height: var(--line-height-5xl);
-  }
-
-  .details__average svg {
-    font-size: 100px;
-    color: var(--secondary-color);
   }
 
   .details__group-button {
@@ -143,6 +143,7 @@ export const StyledDetailsSection = styled.section`
       line-height: var(--line-height-lg);
     }
 
+    .details__season,
     .details__genre {
       font-size: var(--text-md);
       line-height: var(--line-height-md);
@@ -153,14 +154,19 @@ export const StyledDetailsSection = styled.section`
       margin-top: 32px;
     }
   }
+
+  @media (min-width: 1024px) {
+    max-width: 50%;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 65%;
+  }
 `;
 
-export const StyledTeaserTrailerSection = styled.section`
-  display: flex;
-  flex-direction: column;
+export const StyledTeaserTrailerSection = styled(Section)`
   justify-content: space-evenly;
-  align-items: flex-start;
-  gap: 32px;
+  width: 100%;
 
   .iframe__container {
     position: relative;
@@ -175,9 +181,14 @@ export const StyledTeaserTrailerSection = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: var(--rounded-xs);
   }
 
   @media (min-width: 1024px) {
-    width: 45%;
+    max-width: 35%;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 25%;
   }
 `;
