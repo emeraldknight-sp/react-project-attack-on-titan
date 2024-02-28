@@ -1,10 +1,10 @@
 import * as MdIcon from "react-icons/md";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo.webp";
 import { Button } from "../Button";
+import { ContainerHeader, StyledHeader, StyledLogo } from "./Header.style";
 import { Menu } from "../Menu";
 import { MenuContext } from "../../context/MenuContext";
 import { MouseEvent, useContext, useEffect, useState } from "react";
-import { ContainerHeader, StyledHeader, StyledLogo } from "./Header.style";
 
 export const Header = () => {
   const [viewport, setViewport] = useState(window.innerWidth);
