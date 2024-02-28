@@ -1,13 +1,10 @@
 import styled from "@emotion/styled";
 
-interface StyledMenuProps {
-  openMenu: boolean;
-}
-
 export const StyledMenu = styled.nav<StyledMenuProps>`
   position: fixed;
   top: 11vh;
   left: 0;
+  z-index: 9999;
 
   width: 100%;
   height: 100%;
@@ -40,10 +37,10 @@ export const StyledMenu = styled.nav<StyledMenuProps>`
     line-height: var(--line-height-lg);
   }
 
-  .menu__button {
-    svg {
-      display: none;
-    }
+  .menu__button--icon {
+    display: none;
+    width: 50px;
+    height: auto;
   }
 
   .menu__link {
@@ -104,14 +101,13 @@ export const StyledMenu = styled.nav<StyledMenuProps>`
       padding: 0 0 8px;
     }
 
-    .menu__button {
-      span {
-        display: none;
-      }
+    .menu__button--text {
+      display: none;
+    }
 
-      svg {
-        display: unset;
-      }
+    .menu__button--icon {
+      display: unset;
+      border-radius: 50%;
     }
   }
 `;

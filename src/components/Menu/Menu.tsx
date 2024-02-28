@@ -1,4 +1,5 @@
 import * as MdIcon from "react-icons/md";
+import UserProfile from "../../assets/user.webp";
 import { Button } from "../Button";
 import { Container } from "../Container";
 import { MenuContext } from "../../context/MenuContext";
@@ -17,19 +18,19 @@ export const Menu = () => {
   const menuConfig = [
     {
       id: 1,
-      icon: <MdIcon.MdSearch size={24} />,
+      icon: <MdIcon.MdSearch className="menu__icon" size={24} />,
       text: "Digite sua busca",
       url: "/",
     },
     {
       id: 2,
-      icon: <MdIcon.MdNotificationsNone size={24} />,
+      icon: <MdIcon.MdNotificationsNone className="menu__icon" size={24} />,
       text: "Notificações",
       url: "/",
     },
     {
       id: 3,
-      icon: <MdIcon.MdInsertEmoticon size={24} />,
+      img: UserProfile,
       text: "Meu perfil",
       url: "/",
     },
@@ -45,7 +46,7 @@ export const Menu = () => {
                 href={option.link}
                 onClick={handleClick}
                 aria-label={`clique aqui para ${option.description}`}
-                className={`menu__link ${option.name === "Filmes" ? "selected" : ""}`}
+                className={`menu__link ${option.name === "Desenhos" ? "selected" : ""}`}
               >
                 {option.name}
               </a>
@@ -57,12 +58,20 @@ export const Menu = () => {
             <li key={index} className="menu__item">
               <Button
                 size="sm"
-                ariaLabel="search"
+                ariaLabel={`clique aqui para acessar ${config.text}`}
                 rounded="full"
                 className="menu__button"
-                onClick={() => console.log("Click", config.text)}
               >
-                {config.icon} <span>{config.text}</span>
+                {!config.icon ? (
+                  <img
+                    src={config.img}
+                    className="menu__button--icon"
+                    alt="foto de usuário"
+                  />
+                ) : (
+                  config.icon
+                )}
+                <span className="menu__button--text">{config.text}</span>
               </Button>
             </li>
           ))}
