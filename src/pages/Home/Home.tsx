@@ -175,7 +175,7 @@ export const Home = () => {
             trailers.results.map((trailer, index) => (
               <div key={index} className="iframe__container">
                 <iframe
-                  src={`https://www.youtube.com/embed/${trailer.key}?autoplay=0&mute=1`}
+                  src={`https://www.youtube.com/embed/${trailer.key}?autoplay=0&mute=0`}
                   title={trailer.name}
                   allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
