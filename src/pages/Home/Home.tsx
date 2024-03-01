@@ -1,5 +1,4 @@
 import * as IoIcon from "react-icons/io";
-import axios from "axios";
 import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Main } from "../../components/Main";
@@ -10,73 +9,37 @@ import {
   StyledHome,
   StyledTeaserTrailerSection,
 } from "./Home.style";
+import { Loading } from "../../components/Loading";
+import { DataContext } from "../../context/DataContext";
+import Music from "../../assets/bauklötze.mp3";
 
 export const Home = () => {
-  const [data, setData] = useState<TVSerie>();
-  const [trailers, setTrailers] = useState<TrailersResult>();
-
-  const { openMenu } = useContext(MenuContext);
-
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
-  const AUTH_TOKEN = process.env.REACT_APP_AUTH_TOKEN;
   const BASE_IMAGE_URL = process.env.REACT_APP_BASE_IMAGE_URL;
   const backgroundURL = BASE_IMAGE_URL + "/original/";
-  const MOVIE_ID = 1429;
 
-  const axiosInstance = axios.create({
-    baseURL: BASE_URL,
-    headers: {
-      Authorization: `Bearer ${AUTH_TOKEN}`,
-      "Content-Type": "Application/json",
-    },
-  });
-
-  const fetchData = async () => {
-    try {
-      const res = await axiosInstance.get(`tv/${MOVIE_ID}?language=pt-BR`);
-
-      setData(res.data);
-    } catch (error) {
-      console.error("Erro durante a requisição:", error);
-    }
-  };
+  const { data, trailers } = useContext(DataContext);
+  const { openMenu } = useContext(MenuContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchData();
+    const audio = new Audio(Music);
+    audio.loop = true;
+    audio.play();
   }, []);
 
-  const fetchTrailers = async () => {
-    try {
-      const { id } = data || {};
-      const res = await axiosInstance.get(`/tv/${id}/videos`);
-      const { results } = res.data;
-      setTrailers({
-        id: res.data.id,
-        results: results
-          // .filter((el: Trailer) => el.official === true)
-          .slice(0, 3),
-      });
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   useEffect(() => {
-    if (data && data.id) {
-      const timerId = setTimeout(() => fetchTrailers(), 2000);
-      return () => clearTimeout(timerId);
-    }
-  }, [data]);
+    const delay = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
 
-  if (!data) {
-    return <div>Carregando...</div>;
-  }
+    return () => clearTimeout(delay);
+  }, []);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
   };
 
-  return (
+  return !loading && data ? (
     <StyledHome
       style={{
         backgroundImage: `url(${backgroundURL}/${data.backdrop_path})`,
@@ -172,63 +135,25 @@ export const Home = () => {
         </StyledDetailsSection>
         <StyledTeaserTrailerSection>
           {trailers ? (
-            trailers.results.map((trailer, index) => (
-              <div key={index} className="iframe__container">
-                <iframe
-                  src={`https://www.youtube.com/embed/${trailer.key}?autoplay=0&mute=0`}
-                  title={trailer.name}
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            ))
+            trailers.results
+              .map((trailer, index) => (
+                <div key={index} className="iframe__container">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${trailer.key}?autoplay=0&mute=0`}
+                    title={trailer.name}
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              ))
+              .slice(0, 3)
           ) : (
             <div></div>
           )}
         </StyledTeaserTrailerSection>
       </Main>
     </StyledHome>
+  ) : (
+    <Loading />
   );
 };
-
-// const [data, setData] = useState<Movie[]>();
-
-// const url = `${BASE_URL}/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
-
-// const headers = {
-//   accept: "application/json",
-//   Authorization: `Bearer ${AUTH_TOKEN}`,
-// };
-
-// try {
-//   const res = await fetch(url, { method: "GET", headers });
-
-//   if (!res.ok) {
-//     throw new Error(`HTTP error! Status: ${res.status}`);
-//   }
-
-//   const data = await res.json();
-//   setData(data);
-// } catch (error) {
-//   console.error("Error:", error);
-// }
-
-// const API_KEY = process.env.REACT_APP_API_KEY;
-// {
-/* <section>
-            <h3></h3>
-            <div>
-              {data.results.map((movie, index) => (
-                <div key={index}>
-                  <img
-                    src={`${process.env.REACT_APP_BASE_IMAGE_URL}w200${movie.poster_path}`}
-                    alt=""
-                  />
-                  <p>{movie.title}</p>
-                  <p>{movie.vote_average}</p>
-                  <button>Ver</button>
-                </div>
-              ))}
-            </div>
-          </section> */
-// }
