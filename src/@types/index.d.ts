@@ -1,5 +1,7 @@
 /// <reference types="react-scripts" />
 
+declare module "*.mp3";
+
 interface ButtonProps {
   onClick?: (e: any) => void;
   disabled?: boolean;
@@ -145,7 +147,7 @@ interface TVSerie {
   vote_count: number;
 }
 
-interface MovieResult {
+interface Movie {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
@@ -182,7 +184,7 @@ interface Trailer {
   id: string;
 }
 
-interface TrailersResult {
+interface Trailers {
   id: number;
   results: Trailer[];
 }
