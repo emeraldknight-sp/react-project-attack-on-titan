@@ -30,7 +30,7 @@ export const Home = () => {
   useEffect(() => {
     const delay = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 4000);
 
     return () => clearTimeout(delay);
   }, []);
