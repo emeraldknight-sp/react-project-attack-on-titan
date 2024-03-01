@@ -1,7 +1,5 @@
 import { createContext, useState } from "react";
 
-
-
 export const MenuContext = createContext<MenuContextProps>({
   openMenu: false,
   handleOpenMenu: () => {},

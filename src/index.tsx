@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { reportWebVitals } from "./reportWebVitals";
-import { Metric } from "web-vitals";
 import { App } from "./App";
+import { AppProvider } from "./context";
 import { Global } from "@emotion/react";
+import { Metric } from "web-vitals";
 import { ResetCSS } from "./styles/global";
-import { MenuContextProvider } from "./context/MenuContext";
+import { reportWebVitals } from "./reportWebVitals";
 
 const handleWebVitals = (metric: Metric) => {
   console.log(metric);
@@ -17,9 +17,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Global styles={ResetCSS} />
-    <MenuContextProvider>
+    <AppProvider>
       <App />
-    </MenuContextProvider>
+    </AppProvider>
   </React.StrictMode>,
 );
 
