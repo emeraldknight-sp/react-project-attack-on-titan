@@ -1,6 +1,6 @@
 import { ContainerMain, StyledMain } from "./Main.style"
 
-export const Main = ({children}: {children: React.ReactNode}) => {
+export const Main = ({children}: MainProps) => {
   return (
     <StyledMain>
       <ContainerMain>
