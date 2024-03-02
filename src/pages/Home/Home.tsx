@@ -11,7 +11,8 @@ import {
 } from "./Home.style";
 import { Loading } from "../../components/Loading";
 import { DataContext } from "../../context/DataContext";
-import Music from "../../assets/bauklötze.mp3";
+import { Frame } from "../../components/Frame";
+// import Music from "../../assets/bauklötze.mp3";
 
 export const Home = () => {
   const BASE_IMAGE_URL = process.env.REACT_APP_BASE_IMAGE_URL;
@@ -21,16 +22,16 @@ export const Home = () => {
   const { openMenu } = useContext(MenuContext);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const audio = new Audio(Music);
-    audio.loop = true;
-    audio.play();
-  }, []);
+  // useEffect(() => {
+  //   const audio = new Audio(Music);
+  //   audio.loop = true;
+  //   audio.play();
+  // }, []);
 
   useEffect(() => {
     const delay = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3000);
 
     return () => clearTimeout(delay);
   }, []);
@@ -134,18 +135,9 @@ export const Home = () => {
           </div>
         </StyledDetailsSection>
         <StyledTeaserTrailerSection>
-          {trailers ? (
+          {trailers?.results && trailers.results.length > 0 ? (
             trailers.results
-              .map((trailer, index) => (
-                <div key={index} className="iframe__container">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${trailer.key}?autoplay=0&mute=0`}
-                    title={trailer.name}
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-              ))
+              .map((trailer, index) => <Frame key={index} video={trailer} />)
               .slice(0, 3)
           ) : (
             <div></div>

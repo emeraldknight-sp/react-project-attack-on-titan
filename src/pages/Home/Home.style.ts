@@ -168,27 +168,11 @@ export const StyledTeaserTrailerSection = styled(Section)`
   justify-content: space-evenly;
   width: 100%;
 
-  .iframe__container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-  }
-
-  .iframe__container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--rounded-xs);
-  }
-
   @media (min-width: 1024px) {
-    max-width: 35%;
+    max-width: 36%;
   }
 
   @media (min-width: 1440px) {
-    max-width: 25%;
+    max-width: 26%;
   }
 `;
