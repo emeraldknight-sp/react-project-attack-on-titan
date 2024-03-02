@@ -2,8 +2,8 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 interface DataContextProps {
-  data: TVSerie | undefined,
-  trailers: Trailers | undefined;
+  data: TVSeries | undefined;
+  trailers: TVSeriesTrailers | undefined;
 }
 
 export const DataContext = createContext<DataContextProps>({
@@ -16,8 +16,8 @@ interface DataContextProviderProps {
 }
 
 export const DataContextProvider = ({ children }: DataContextProviderProps) => {
-  const [data, setData] = useState<TVSerie>();
-  const [trailers, setTrailers] = useState<Trailers>();
+  const [data, setData] = useState<TVSeries>();
+  const [trailers, setTrailers] = useState<TVSeriesTrailers>();
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const AUTH_TOKEN = process.env.REACT_APP_AUTH_TOKEN;
@@ -37,6 +37,8 @@ export const DataContextProvider = ({ children }: DataContextProviderProps) => {
         axiosInstance.get(`tv/${ID}?language=pt-BR`),
         axiosInstance.get(`tv/${ID}/videos`),
       ]);
+
+      console.log("DATA:", contentRes);
 
       setData(contentRes.data);
       setTrailers(trailersRes.data);
