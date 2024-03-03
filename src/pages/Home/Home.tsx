@@ -15,7 +15,7 @@ import {
 import { Loading } from "../../components/Loading";
 import { DataContext } from "../../context/DataContext";
 import { Frame } from "../../components/Frame";
-import Music from "../../assets/bauklötze.mp3";
+import Music from "../../assets/music/bauklötze.mp3";
 
 export const Home = () => {
   const BASE_IMAGE_URL = process.env.REACT_APP_BASE_IMAGE_URL;

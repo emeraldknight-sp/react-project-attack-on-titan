@@ -1,5 +1,5 @@
 import * as MdIcon from "react-icons/md";
-import Logo from "../../assets/logo.webp";
+import Logo from "../../assets/image/logo.webp";
 import { Button } from "../Button";
 import { ContainerHeader, StyledHeader, StyledLogo } from "./Header.style";
 import { Menu } from "../Menu";

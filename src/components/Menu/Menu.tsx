@@ -1,5 +1,5 @@
 import * as MdIcon from "react-icons/md";
-import UserProfile from "../../assets/user.webp";
+import UserProfile from "../../assets/image/user.webp";
 import { Button } from "../Button";
 import { Container } from "../Container";
 import { MenuContext } from "../../context/MenuContext";
