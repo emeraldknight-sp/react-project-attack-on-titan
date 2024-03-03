@@ -3,16 +3,19 @@ import { Button } from "../../components/Button";
 import { Header } from "../../components/Header";
 import { Main } from "../../components/Main";
 import { MenuContext } from "../../context/MenuContext";
-import { MouseEvent, useContext, useEffect, useState } from "react";
+import { MouseEvent, useContext, useEffect, useRef, useState } from "react";
 import {
   StyledDetailsSection,
   StyledHome,
+  StyledModalButton,
+  StyledModalContainer,
+  StyledModalContent,
   StyledTeaserTrailerSection,
 } from "./Home.style";
 import { Loading } from "../../components/Loading";
 import { DataContext } from "../../context/DataContext";
 import { Frame } from "../../components/Frame";
-// import Music from "../../assets/bauklötze.mp3";
+import Music from "../../assets/bauklötze.mp3";
 
 export const Home = () => {
   const BASE_IMAGE_URL = process.env.REACT_APP_BASE_IMAGE_URL;
@@ -20,24 +23,42 @@ export const Home = () => {
 
   const { data, trailers } = useContext(DataContext);
   const { openMenu } = useContext(MenuContext);
+  const [openModal, setOpenModal] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [play, setPlay] = useState(false);
 
-  // useEffect(() => {
-  //   const audio = new Audio(Music);
-  //   audio.loop = true;
-  //   audio.play();
-  // }, []);
+  const audioRef = useRef(new Audio(Music));
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    audio.loop = true;
+    if (play) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, [play]);
 
   useEffect(() => {
     const delay = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
 
     return () => clearTimeout(delay);
   }, []);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+  };
+
+  const handlePlayMusic = (play: boolean) => {
+    setPlay(play);
+    setOpenModal(!openModal);
   };
 
   return !loading && data ? (
@@ -51,6 +72,32 @@ export const Home = () => {
     >
       <Header />
       <Main>
+        <StyledModalContainer
+          style={{
+            display: openModal ? "flex" : "none",
+          }}
+        >
+          <StyledModalContent>
+            <span className="modal__answer">
+              Para desfrutar de uma maior imersão nesta página deseja reproduzir
+              áudio?
+            </span>
+            <div className="modal__button-group">
+              <StyledModalButton
+                size="md"
+                onClick={() => handlePlayMusic(false)}
+              >
+                Não
+              </StyledModalButton>
+              <StyledModalButton
+                size="md"
+                onClick={() => handlePlayMusic(true)}
+              >
+                Sim
+              </StyledModalButton>
+            </div>
+          </StyledModalContent>
+        </StyledModalContainer>
         <StyledDetailsSection>
           {data.number_of_seasons ? (
             <span className="details__season">
@@ -66,7 +113,9 @@ export const Home = () => {
             </ul>
           )}
           <h3 className="details__title">{data.name}</h3>
-          <p className="details__description">{data.overview}</p>
+          <p className="details__description">
+            {data.seasons[data.number_of_seasons].overview}
+          </p>
           <div className="details__group-details">
             <div className="details__average">
               <IoIcon.IoIosStar className="details__average--icon" />

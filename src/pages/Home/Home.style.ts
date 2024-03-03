@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Button } from "../../components/Button";
 
 export const StyledHome = styled.div`
   display: flex;
@@ -174,5 +175,66 @@ export const StyledTeaserTrailerSection = styled(Section)`
 
   @media (min-width: 1440px) {
     max-width: 26%;
+  }
+`;
+
+export const StyledModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+`;
+
+export const StyledModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  max-width: 288px;
+  border-radius: var(--rounded-xs);
+  color: white;
+
+  font-size: var(--text-md);
+  font-family: var(--text-content);
+  font-weight: 400;
+  line-height: var(--line-height-md);
+  text-align: center;
+
+  .modal__answer {
+    padding: 2rem;
+  }
+
+  .modal__button-group {
+    display: flex;
+    width: 100%;
+  }
+`;
+export const StyledModalButton = styled(Button)`
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  flex: 1;
+  font-size: var(--text-md);
+  font-weight: 400;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:first-of-type {
+    border-radius: 0 0 0 var(--rounded-xs);
+  }
+
+  &:last-of-type {
+    border-left: 1px solid gray;
+    border-radius: 0 0 var(--rounded-xs) 0;
   }
 `;
