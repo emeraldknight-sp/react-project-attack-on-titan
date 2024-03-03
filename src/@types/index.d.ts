@@ -8,7 +8,7 @@ interface ButtonProps {
   className?: string;
   style?: React.CSSProperties;
   color?: "primary" | "secondary" | "tertiary" | string;
-  rounded: "sm" | "md" | "lg" | "full";
+  rounded?: "sm" | "md" | "lg" | "full";
   size?: "sm" | "md" | "lg";
   children?: React.ReactNode;
   type?: "button" | "submit" | "reset";
@@ -71,64 +71,6 @@ interface Season {
   vote_average: number;
 }
 
-interface ProductionCompany {
-  id: number;
-  logo_path: string | null;
-  name: string;
-  origin_country: string;
-}
-
-interface Genre {
-  id: number;
-  name: string;
-}
-
-interface ProductionCountry {
-  iso_3166_1: string;
-  name: string;
-}
-
-interface SpokenLanguage {
-  english_name: string;
-  iso_639_1: string;
-  name: string;
-}
-
-interface TVSeries {
-  adult: boolean;
-  backdrop_path: string | null;
-  created_by: any[];
-  episode_run_time: number[];
-  first_air_date: string;
-  genres: Genre[];
-  homepage: string;
-  id: number;
-  in_production: boolean;
-  languages: string[];
-  last_air_date: string;
-  last_episode_to_air: LastEpisodeToAir;
-  name: string;
-  next_episode_to_air: null | LastEpisodeToAir;
-  networks: Network[];
-  number_of_episodes: number;
-  number_of_seasons: number;
-  origin_country: string[];
-  original_language: string;
-  original_name: string;
-  overview: string;
-  popularity: number;
-  poster_path: string | null;
-  production_companies: ProductionCompany[];
-  production_countries: ProductionCountry[];
-  seasons: Season[];
-  spoken_languages: SpokenLanguage[];
-  status: string;
-  tagline: string;
-  type: string;
-  vote_average: number;
-  vote_count: number;
-}
-
 interface BelongsToCollection {
   id: number;
   name: string;
@@ -187,22 +129,39 @@ interface Movie {
   vote_count: number;
 }
 
-interface Trailer {
-  iso_639_1: string;
-  iso_3166_1: string;
-  name: string;
-  key: string;
-  site: string;
-  size: number;
-  type: string;
-  official?: boolean;
-  published_at?: string;
-  id: string;
-}
-
-interface MovieTrailers {
+interface TVSeries {
+  adult: boolean;
+  backdrop_path: string | null;
+  created_by: any[];
+  episode_run_time: number[];
+  first_air_date: string;
+  genres: Genre[];
+  homepage: string;
   id: number;
-  results: Trailer[];
+  in_production: boolean;
+  languages: string[];
+  last_air_date: string;
+  last_episode_to_air: LastEpisodeToAir;
+  name: string;
+  next_episode_to_air: null | LastEpisodeToAir;
+  networks: Network[];
+  number_of_episodes: number;
+  number_of_seasons: number;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string | null;
+  production_companies: ProductionCompany[];
+  production_countries: ProductionCountry[];
+  seasons: Season[];
+  spoken_languages: SpokenLanguage[];
+  status: string;
+  tagline: string;
+  type: string;
+  vote_average: number;
+  vote_count: number;
 }
 
 interface Trailer {
@@ -218,7 +177,7 @@ interface Trailer {
   id: string;
 }
 
-interface TVSeriesTrailers {
+interface Trailers {
   id: number;
   results: Trailer[];
 }
