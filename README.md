@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+<h1 align="center">Project: Cineverse</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="logo" src=".github/project.webp" width="10%">
+</p>
 
-## Available Scripts
+This project emulates the detailed display page of an audiovisual product within a streaming platform using modern web technologies to build an interactive and dynamic interface that is able to compete with the quality of the streaming platform market.
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
+</p>
 
-### `yarn start`
+## 🔗 Links
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/davidalmeidadev)
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://instagram.com/davidalmeidadev)
+[![Brave](https://img.shields.io/badge/Portfolio-yellow?style=for-the-badge&logo=Brave&logoColor=white)](https://react-project-portfolio.vercel.app/)
+[![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)](./LICENSE)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 Tecnologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This project was developed with the following technologies:
 
-### `yarn test`
+- HTML5, CSS3, JS ES6+
+- [Node e Yarn](https://nodejs.org/)
+- [React.js](https://react.dev/)
+- [React Icons](https://www.npmjs.com/package/react-icons)
+- [Emotion](https://emotion.sh/docs/introduction)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [Context API](https://www.freecodecamp.org/news/context-api-in-react/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 💻 Project
 
-### `yarn build`
+In this project I used React to bring to life a fluid and responsive interface using the resources provided by the @Emotion library (CSS-in-JS), working on the concept of modularization components were created, requests were made and handled with Axios to supply the context of the application within the Context API.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The code was treated with some linters and formatters to guarantee a cohesive and coherent code structure, thus reducing the chances of syntax errors occurring with Typescript and the automation process carried out with the help of Husky and Lint-staged.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏡 Get started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Installing project dependencies
 
-### `yarn eject`
+```sh
+yarn install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Application initialization
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+yarn start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Application build
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+yarn build
+```
 
-## Learn More
+## 🔖 Layout
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can view the project layout by clicking [here](https://dribbble.com/shots/16585818-Attack-On-Titan-Web-UI-Design/attachments/11611176?mode=media).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="center">
+  <img alt="layout" src=".github/layout.webp" width="100%">
+</p>
+
+## 📝 License
+
+This project is under the [MIT license](./LICENSE).
