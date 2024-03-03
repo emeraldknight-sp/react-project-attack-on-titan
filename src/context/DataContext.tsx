@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 interface DataContextProps {
   data: TVSeries | undefined;
-  trailers: TVSeriesTrailers | undefined;
+  trailers: Trailers | undefined;
 }
 
 export const DataContext = createContext<DataContextProps>({
@@ -17,7 +17,7 @@ interface DataContextProviderProps {
 
 export const DataContextProvider = ({ children }: DataContextProviderProps) => {
   const [data, setData] = useState<TVSeries>();
-  const [trailers, setTrailers] = useState<TVSeriesTrailers>();
+  const [trailers, setTrailers] = useState<Trailers>();
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const AUTH_TOKEN = process.env.REACT_APP_AUTH_TOKEN;
