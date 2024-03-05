@@ -161,7 +161,6 @@ export const Home = () => {
                     rounded="lg"
                     size="md"
                     ariaLabel="Assistir agora"
-                    onClick={handleClick}
                   >
                     <IoIcon.IoIosPlay size={24} />
                     <span>Assistir agora</span>
